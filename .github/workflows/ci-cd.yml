@@ -5,7 +5,9 @@ on: # trigger
     branches: [main]
   pull_request:
     branches: [main]
-
+permissions:
+  id-token: write   # Required for OIDC
+  contents: read    # For actions/checkout
 env:
   AWS_REGION: us-east-1
   AWS_ROLE: ${{secrets.AWS_ACTION_ROLE}}
