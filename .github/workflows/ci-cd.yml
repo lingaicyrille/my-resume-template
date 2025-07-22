@@ -11,7 +11,7 @@ permissions:
 env:
   AWS_REGION: us-east-1
   AWS_ROLE: ${{secrets.AWS_ACTION_ROLE}}
-  ECR_REPO_NAME: dev-13:latest
+  ECR_REPO_NAME: dev-13
   IMAGE_TAG: ${{github.run_number}}
 
 
@@ -32,5 +32,5 @@ jobs:
       - name: Build tag and push image
         id: build-and-push
         run: | 
-             docker build -t $${{ steps.ecr-login.outputs.registry }}/${{env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}} .
-             docker push ${{steps.ecr-login.outputs.registry}}/${{env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}}
+             docker build -t $${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}} .
+             docker push ${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}}
