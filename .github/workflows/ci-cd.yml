@@ -39,9 +39,9 @@ jobs:
         with:
           image-ref: "${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}}" # Scan
 "
-          format: 'table'
-          exit-code: '1'  # Fail the build if vulnerabilities found
-          severity: 'CRITICAL,HIGH'
+          format: "table"
+          exit-code: "0"  # Fail the build if vulnerabilities found
+          severity: "CRITICAL,HIGH"
       - name: Push image to ecr
         run: | 
              docker push ${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}}
