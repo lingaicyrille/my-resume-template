@@ -47,8 +47,8 @@ jobs:
       
       - name: store image in github env
         run: echo "Image=${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPO_NAME}}:${{env.IMAGE_TAG}}" >> $GITHUB_ENV
-  Deploy:
+  #Deploy:
     
-    runs-on: ubuntu-latest
-    needs: Build
-    steps: 
+    #runs-on: ubuntu-latest
+    #needs: Build
+    #steps: 
