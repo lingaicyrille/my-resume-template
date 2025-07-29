@@ -8,6 +8,8 @@ on: # trigger
 permissions:
   id-token: write   # Required for OIDC
   contents: read    # For actions/checkout
+  pull-requests: write
+  
 env:
   AWS_REGION: us-east-1
   AWS_ROLE: ${{secrets.AWS_ACTION_ROLE}}
